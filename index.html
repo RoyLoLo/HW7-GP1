@@ -1,58 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>afdjdkal;;</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>newsImages</title>
+<!--materialize CDNs-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous">
-    </script>
 
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <div class = "container">
-        <div class = "row">
-            <div class = "col s12">
-                <h2>This will be the title of the Page</h2>
-            </div>
-        </div>
-       <hr>
-        <div class = "row">
-            <!--display favorites-->
-            <div class = "col s2" id = "favimg0"></div>
-            <div class = "col s2" id = "favimg1"></div>
-            <div class = "col s2" id = "favimg2"></div>
-            <div class = "col s2" id = "favimg3"></div>
-            <div class = "col s2" id = "favimg4"></div>
-            
-        </div>
 
-    <hr>
-        <div class = "row">
-        <div class = "col s12 " id = "fill images here"></div>
+<body>
+
+<!--this is just to test modal-->
+<button id="modal-btn" class="button">Click Here</button>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 top5"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col s12 loadimg"></div>
         </div>
     
-        <!--Modal part-->
-        <div id="myModal" class="modal">
-
+    <div class="row">
+        <div class="col s12">
+                
+    <div id="start-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            this is where the article/info will go
+            <div class="modal-head">
+                <h3>Please Click to Begin</h3>
+            </div>
+            <div class="modal-body">
+                <button class="start-btn">Start</button>
+            </div>
+            <div class="modal-foot">
+                <h3>this is the footer</h3>
+            </div>
         </div>
-
-        </div>
-
-
     </div>
+        </div>
+    </div>
+    
+    
+</div> <!--end container-->
     <script src="assets/jscript/script.js"></script>
 </body>
 </html>
+
+
