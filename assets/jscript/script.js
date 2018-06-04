@@ -1,10 +1,14 @@
+/* var newsImages = ["assets/images/] */
+
+//Running ajax call from Google News API:
 $.ajax({
     url:"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b44fe26f44f54697aa4d45c7d56ac36b",
     method:"GET"
 }).then(function(response){
     console.log(response);
     var results=response.articles;
-    for(var i=0;i<10;i++){
+//Running loop for each story the ajax calls:
+    for(var i=0;i<9;i++){
     var topic= results[i].title;
     var desc= results[i].description;
     var url= results[i].url;
@@ -13,7 +17,7 @@ $.ajax({
     console.log(topic);
     console.log(desc);
     console.log(url);
-   
+//Running ajax from Google Image Search:
     $.ajax({
         url:"https://cors-anywhere.herokuapp.com/https://www.google.com/search?q="+topic+"&safe=active&source=lnms&tbm=isch",
         method:"GET"
