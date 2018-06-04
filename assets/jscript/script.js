@@ -1,49 +1,60 @@
+var splashImage =["assets/images/trump.jpg", "assets/images/army.jpg", "assets/images/olympics.jpg", "assets/images/africa.jpg", "assets/images/un.jpg"];
+
+var rand = splashImage[Math.floor(Math.random()*splashImage.length)];
+
+$(".bgImage").attr("src", rand);
+
 $.ajax({
     url:"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b44fe26f44f54697aa4d45c7d56ac36b",
     method:"GET"
 }).then(function(response){
-    console.log(response);
     var results=response.articles;
     for(var i=0;i<10;i++){
     var topic= results[i].title;
     var desc= results[i].description;
     var url= results[i].url;
     var source= results[i].source.name;
-    console.log(source);
-    console.log(topic);
-    console.log(desc);
-    console.log(url);
+
    
     $.ajax({
         url:"https://cors-anywhere.herokuapp.com/https://www.google.com/search?q="+topic+"&safe=active&source=lnms&tbm=isch",
         method:"GET"
     }).then(function(innerResponse){
         var images = innerResponse.match(/https[^"]*jpg/);
-        console.log(images);
-        
         var imagesDiv=$("<div class='images'>")
         var topicImage=$("<img>");
 
         topicImage.addClass("image");
         topicImage.attr("src", images);
         topicImage.attr("data-count", 0);
+        topicImage.attr("data-topic", topic);
+        topicImage.attr("data-desc", desc);
+        topicImage.attr("data-url", url);
+        topicImage.attr("data-source", source);
         imagesDiv.append(topicImage);
         
 
 
         $(".imageDump").append(imagesDiv);
-    })
+    });
+
+
     }
     
 
 })
+
+$(document).on("click", ".images", function(){
+    console.log(this);
+
+});
 
 //can also use $(documnent).ready(function(){});
 $(function(){
 //Modal stuff
 var modalStart = document.getElementById("start-modal");
 var modalBtn = document.getElementById("modal-btn");
-var closeBtn = document.getElementsByClassName("start-btn")[0];
+var closeBtn = document.getElementsByClassName("startImage")[0];
 var tempImage = document.getElementById("temp-image");
 var imageModal = document.getElementById("image-modal");
 var imageClose = document.getElementsByClassName("cls-btn")[0];
