@@ -1,4 +1,3 @@
-src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"
 
   // Initialize Firebase
   var config = {
@@ -12,12 +11,19 @@ src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"
   firebase.initializeApp(config);
   var database = firebase.database();
   var clickCounter = 0;
-  // On Click of Button
-  $("#img").on("click", function() {
-    var clickCount = this.val('data-count');
-    var headLine = this.val('data-headline');
+  // On Click of Any Image Displayed
+  $("img").on("click", function() {
+    // console.log(this);
+    var clickCount = $(this).attr('data-count');
+    // console.log(clickCount);
+    var headLine = $(this).attr('data-headline');
+    console.log(headLine)
     // Add to clickCount attribute
-    parseInt(clickCount)++;
+    parseInt(clickCount);
+    clickCount++;
+    // console.log(clickCount);
+    
+    
 
     //  Store Click Data to Firebase in a JSON property called clicks
     // Note how we are using the Firebase .set() method
@@ -33,25 +39,30 @@ src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"
         myObj
     
     );
-  });
-  // Using .on("value", function(snapshot)) syntax will retrieve the data
+      // Using .on("value", function(snapshot)) syntax will retrieve the data
     // from the database (both initially and every time something changes)
     // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
     database.ref().on("value", function(snapshot) {
 
-        // Then we console.log the value of snapshot
-        console.log(snapshot.val());
-  
-        // Then we change the html associated with the number.
-        $("<img>").Attr('data-count', snapshot.val().myObj.headLine);
-  
-        // Then update the clickCount attribute with data from the database.
-        clickCount = snapshot.val().myObj.headLine;
-  
-        // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-        // Again we could have named errorObject anything we wanted.
-      }, function(errorObject) {
-  
-        // In case of error this will print the error
-        console.log("The read failed: " + errorObject.code);
-      });
+
+      
+    
+      //     // Then we change the html associated with the number.
+          $("img").attr('data-count', snapshot.val()[headLine]);
+    
+      //     // Then update the clickCount attribute with data from the database.
+          clickCount = snapshot.val()[headLine];
+          console.log(clickCount)
+          
+    
+      //     // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
+      //     // Again we could have named errorObject anything we wanted.
+        }, function(errorObject) {
+    
+      //     // In case of error this will print the error
+          console.log("The read failed: " + errorObject.code);
+        });
+    console.log(this)
+  });
+
+      
