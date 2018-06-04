@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $.ajax({
     url:"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b44fe26f44f54697aa4d45c7d56ac36b",
     method:"GET"
@@ -38,7 +37,6 @@ $.ajax({
     
 
 })
-=======
 
 //can also use $(documnent).ready(function(){});
 $(function(){
@@ -84,4 +82,3 @@ function closeImageModal(){
 
 
 
->>>>>>> html_framework
