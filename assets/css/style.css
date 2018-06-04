@@ -1,0 +1,84 @@
+body{
+    height:100%;
+    width: 100%;
+}
+img{
+    height:200px;
+    width:200px;
+}
+
+
+.top5{
+    height:200px;
+    width:100%;
+    background-color: aqua;
+}
+
+.loadimg{
+    background-color: dodgerblue;
+    height:600px;
+    width: 100%;
+    
+}
+/*the whole modal*/
+#start-modal{
+    
+    background-color: rgba(0, 0, 0, .9);
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 1;
+    
+}
+
+#image-modal{
+    position: fixed;
+    width: 70%;
+    height:300px;
+    background-color: chartreuse;
+    top:5%;
+    left: 15%;
+}
+
+.mymodal-content{
+    text-align: center;
+    vertical-align: middle;
+    height:80%;
+    width:80%;
+    margin:  auto;
+    animation-name:startscreen;
+    animation-duration: 1s;
+}
+
+
+@keyframes startscreen{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+
+.mymodal-head{
+    background-color: coral;
+}
+.mymodal-body{
+    margin:auto;
+}
+.mymodal-foot{
+    
+    background-color: coral;
+}
+.start-btn{
+    font-size: 55px;
+    background-color: darkslategray;
+    color:aliceblue;
+    padding:20px;
+    border-radius: 5px;
+}
+
+.start-btn:hover{
+    background-color: pink;
+    color:darkslategray;
+    border-color: limegreen;
+}
