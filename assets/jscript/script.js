@@ -27,14 +27,11 @@ $.ajax({
     let topic= results[i].title;
     let desc= results[i].description;
     let url= results[i].url;
-     source= results[i].source.name;
+    let source= results[i].source.name;
     //console.log(source);
     //console.log(topic);
     //console.log(desc);
     //console.log(url);let
-    
-   
-    let source= results[i].source.name;
 
 
 //ajax for pulling news images
@@ -63,8 +60,6 @@ $.ajax({
         $(".imageDump").append(imagesDiv);
     });
 
-
-    });
     }
     
     $(document).on("click",".image",function(){
@@ -88,6 +83,7 @@ $.ajax({
         modalLink.attr("href",myurl);
         modalLink.addClass("modalLink");
         modalLink.text("Click Here to view source");
+        modalLink.attr("target", "blank");
         $(".modal-body").append(modalLink);
 
         var mytopic = $(this).attr("data-topic");
@@ -111,7 +107,6 @@ $(document).on("click", ".images", function(){
 var modalStart = document.getElementById("start-modal");
 var modalBtn = document.getElementById("modal-btn");
 var closeBtn = document.getElementsByClassName("startImage")[0];
-var tempImage = document.getElementById("temp-image");
 var imageModal = document.getElementById("image-modal");
 var imageClose = document.getElementsByClassName("cls-btn")[0];
 //will load start-modal on window load
@@ -120,7 +115,6 @@ imageModal.style.display = "none";
 
 $(modalBtn).on("click",openModal);
 $(closeBtn).on("click",closeModal);
-$(tempImage).on("click",openTempImageModal);
 $(imageClose).on("click",closeImageModal);
 
 
@@ -132,7 +126,7 @@ function closeModal(){
     modalStart.style.display = "none";
 }
 
-function openTempImageModal(){
+function openImageModal(){
     imageModal.style.display = "block"
 }
 
