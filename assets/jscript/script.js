@@ -5,7 +5,7 @@ var rand = splashImage[Math.floor(Math.random()*splashImage.length)];
 
 $(".bgImage").attr("src", rand);
 
-
+//function for adding placeholder image if ajax throws error
 function imgError(image) {
     image.onerror="";
     image.src="assets/images/missing.jpg"
@@ -46,7 +46,6 @@ $.ajax({
 
 
         console.log(images)
-  /*       let equalFix = images.replace(/u003d/g, "="); */
         topicImage.addClass("image");
         topicImage.attr("onerror", "imgError(this)");
         topicImage.attr("src", images[0]);
@@ -57,7 +56,7 @@ $.ajax({
         topicImage.attr("data-source", source);
         imagesDiv.append(topicImage);
         
-        $(".imageDump").append(imagesDiv);
+        $("#imgDump").append(imagesDiv);
     });
 
     }
@@ -68,8 +67,8 @@ $.ajax({
         $(".modal-head").empty();
         var mydesc = $(this).attr("data-desc");
         var myurl = $(this).attr("data-url");
-
-        var modalDesc = $("<p>")
+        var mySource = $(this).attr("data-source");
+        var modalDesc = $("<p>");
         modalDesc.addClass("modalDesc");
         if (mydesc !== ''){
         modalDesc.append(mydesc);
@@ -79,10 +78,10 @@ $.ajax({
         }
         $(".modal-body").append(modalDesc);
 
-        var modalLink = $("<a>");
+        var modalLink = $("<p><a>");
         modalLink.attr("href",myurl);
         modalLink.addClass("modalLink");
-        modalLink.text("Click Here to view source");
+        modalLink.text("Read more at "+mySource);
         modalLink.attr("target", "blank");
         $(".modal-body").append(modalLink);
 
