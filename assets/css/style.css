@@ -1,11 +1,19 @@
+p{
+    color:#fff;
+    font-size: 30px;
+    text-align: center;
+    margin:15px;
+    margin-top:10%;
+}
+
 .header{
     position:relative;
     width:100%;
 }
 
-.imageDump{
+#imgDump{
     width:100%;
-    margin:auto;
+    margin-left:5%;
 }
 
 .image{
@@ -16,6 +24,7 @@
     float: left;
     width: 250px;
     margin: 8px;
+    margin-right:50px;
     height: 180px;
     border: 2px solid lightgray;
     padding: 5px;
@@ -24,11 +33,6 @@
 .top5{
     width:100%;
     background-color:rgba(119, 119, 119, .2)
-}
-
-.loadimg{
-    background-color: dodgerblue;
-    width: 100%;
 }
 
 .startImage{
@@ -60,18 +64,19 @@
 #image-modal{
     position: fixed;
     width: 70%;
-    height:260px;
-    background-color: chartreuse;
+    height:60vh;
+    background-color: rgba(0, 0, 0, .9);
     top:5%;
     left: 15%;
 }
 
 .mymodal-content{
+    color:#fff;
     text-align: center;
     vertical-align: middle;
     height:80%;
     width:80%;
-    margin:  auto;
+    margin: auto;
     animation-name:startscreen;
     animation-duration: 1s;
 }
@@ -82,22 +87,29 @@
 }
 
 .mymodal-body{
+    color:#fff;
+    text-align:center;
     margin:auto;
     height:100%;
     width:auto;
     position:relative;
 }
 
-.start-btn{
-    font-size: 55px;
-    background-color: darkslategray;
-    color:aliceblue;
-    padding:20px;
-    border-radius: 5px;
+.modalLink{
+    margin:auto;
+    font-size: 30px;
+    color: lightgray;
 }
 
-.start-btn:hover{
-    background-color: pink;
-    color:darkslategray;
-    border-color: limegreen;
+.cls-btn{
+    padding: 0;
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color:lightgray;
+    font-size: 25px;
+
 }
