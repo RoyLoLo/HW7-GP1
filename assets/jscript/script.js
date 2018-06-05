@@ -1,3 +1,15 @@
+var config = {
+    apiKey: "AIzaSyBllNmEjRqK_vUQf632WNBD3TO-E-PtZRQ",
+    authDomain: "dailyfails-afad0.firebaseapp.com",
+    databaseURL: "https://dailyfails-afad0.firebaseio.com",
+    projectId: "dailyfails-afad0",
+    storageBucket: "dailyfails-afad0.appspot.com",
+    messagingSenderId: "913175870406"
+  };
+
+  firebase.initializeApp(config);
+  var database = firebase.database();
+
 //adding background image to start page
 var splashImage =["assets/images/trump.jpg", "assets/images/army.jpg", "assets/images/olympics.jpg", "assets/images/africa.jpg", "assets/images/un.jpg"];
 
@@ -43,7 +55,7 @@ $.ajax({
         let images = innerResponse.match(/https[^"]*\.jpg/);
         let imagesDiv=$("<div class='images'>")
         let topicImage=$("<img>");
-        var pCount=$("<p>");
+        // var pCount=$("<p>");
         var headLiner=desc.replace(/[^A-Z0-9]+/ig, "_")
         topicImage.addClass("image");
         topicImage.attr("onerror", "imgError(this)");
@@ -55,10 +67,10 @@ $.ajax({
         topicImage.attr("data-url", url);
         topicImage.attr("data-source", source);
         imagesDiv.append(topicImage);
-        var daCount=$("<span>");
-        pCount.text("Times inspected: ");
-        pCount.append(daCount);
-        imagesDiv.append(pCount);
+        // var daCount=$("<span>");
+        // pCount.text("Times inspected: ");
+        // pCount.append(daCount);
+        // imagesDiv.append(pCount);
         
         
         $("#imgDump").append(imagesDiv);
@@ -74,9 +86,15 @@ $.ajax({
         var myurl = $(this).attr("data-url");
         var mySource = $(this).attr("data-source");
         var modalDesc = $("<p>");
+        var inspecc = $("<p>");
+        inspecc.text("viewed: ");
+        var span = $("<span>");
+        span.attr("id", "inspected");
+        inspecc.append(span);
+        inspecc.append(" times")
         modalDesc.addClass("modalDesc");
         if (mydesc !== ''){
-        modalDesc.append(mydesc);
+        modalDesc.append(mydesc, inspecc);
         }
         else{
         modalDesc.append("There is no Article to Display, for more information Click on the Link Below.")
@@ -95,6 +113,44 @@ $.ajax({
         modalTopic.addClass("modalTopic");
         modalTopic.append(mytopic);
         $(".modal-head").append(modalTopic);
+
+          // console.log(this);
+  var clickCount = $(this).attr('data-count');
+  console.log(clickCount);
+  var headLine = $(this).attr('data-headLine');
+  console.log(headLine);
+  // Add to clickCount attribute
+  parseInt(clickCount);
+  clickCount++;
+  console.log(clickCount);
+
+
+
+
+  //  Store Click Data to Firebase in a JSON property called clicks
+  // Note how we are using the Firebase .set() method
+  // database.ref().set({
+  //     name:headline
+  // })
+
+  // make a new object with dynamic property name
+  var myObj = {}
+  myObj[headLine] = clickCount
+  database.ref().update(
+
+    myObj
+
+  );
+  // clickCount = database.ref(headLine)
+  $(this).attr('data-count', clickCount);
+  // Using .on("value", function(snapshot)) syntax will retrieve the data
+  // from the database (both initially and every time something changes)
+  // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
+
+  console.log(clickCount);
+  // console.log($(this).parent().find('span'));
+  // $(this).parent().find('span').html(clickCount);
+  $('#inspected').html(clickCount);
                 
         
         

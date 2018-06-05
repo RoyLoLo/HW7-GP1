@@ -25,9 +25,11 @@ p{
     width: 250px;
     margin: 8px;
     margin-right:50px;
-    height: 180px;
+    height: 250px;
     border: 2px solid lightgray;
     padding: 5px;
+    font-size: 12px;
+    overflow:auto;
 }
 
 .top5{
