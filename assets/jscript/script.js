@@ -23,7 +23,7 @@ $.ajax({
         var images = innerResponse.match(/https[^"]*jpg/);
         var imagesDiv=$("<div class='images'>")
         var topicImage=$("<img>");
-
+        var pCount=$("<p>");
         topicImage.addClass("image");
         topicImage.attr("src", images);
         topicImage.attr("data-count", 0);
@@ -32,6 +32,11 @@ $.ajax({
         topicImage.attr("data-url", url);
         topicImage.attr("data-source", source);
         imagesDiv.append(topicImage);
+        var daCount=$("<span>");
+        pCount.text("Times inspected: ");
+        pCount.append(daCount);
+        imagesDiv.append(pCount);
+        
         
 
 

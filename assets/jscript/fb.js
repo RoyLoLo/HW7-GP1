@@ -12,12 +12,12 @@
   var database = firebase.database();
   var clickCounter = 0;
   // On Click of Any Image Displayed
-  $("img").on("click", function() {
+  $(".image").on("click", function() {
     // console.log(this);
     var clickCount = $(this).attr('data-count');
     // console.log(clickCount);
     var headLine = $(this).attr('data-headline');
-    console.log(headLine)
+    // console.log(headLine)
     // Add to clickCount attribute
     parseInt(clickCount);
     clickCount++;
@@ -37,8 +37,9 @@
     database.ref().update(
        
         myObj
-    
+      
     );
+    console.log(database)
       // Using .on("value", function(snapshot)) syntax will retrieve the data
     // from the database (both initially and every time something changes)
     // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
@@ -62,7 +63,8 @@
       //     // In case of error this will print the error
           console.log("The read failed: " + errorObject.code);
         });
-    console.log(this)
+    // console.log(this);
+    $(this).parent().find('span').text(clickCount);
   });
 
       
