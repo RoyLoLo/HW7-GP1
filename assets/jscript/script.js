@@ -13,15 +13,15 @@ $.ajax({
     //console.log(response);
 
     var results=response.articles;
-    for(var i=0;i<9;i++){
-    var topic= results[i].title;
-    var desc= results[i].description;
-    var url= results[i].url;
-    var source= results[i].source.name;
+    for(let i=0;i<9;i++){
+    let topic= results[i].title;
+    let desc= results[i].description;
+    let url= results[i].url;
+     source= results[i].source.name;
     //console.log(source);
     //console.log(topic);
     //console.log(desc);
-    //console.log(url);
+    //console.log(url);let
     
    
     $.ajax({
@@ -51,13 +51,19 @@ $.ajax({
     
     $(document).on("click",".image",function(){
         console.log(this);
-
+        $(".modal-body").empty();
+        $(".modal-head").empty();
         var mydesc = $(this).attr("data-desc");
         var myurl = $(this).attr("data-url");
 
         var modalDesc = $("<p>")
         modalDesc.addClass("modalDesc");
+        if (mydesc !== ''){
         modalDesc.append(mydesc);
+        }
+        else{
+        modalDesc.append("There is no Article to Display, for more information Click on the Link Below.")
+        }
         $(".modal-body").append(modalDesc);
 
         var modalLink = $("<a>");
@@ -66,6 +72,11 @@ $.ajax({
         modalLink.text("Click Here to view source");
         $(".modal-body").append(modalLink);
 
+        var mytopic = $(this).attr("data-topic");
+        var modalTopic = $("<p>");
+        modalTopic.addClass("modalTopic");
+        modalTopic.append(mytopic);
+        $(".modal-head").append(modalTopic);
                 
         
         
