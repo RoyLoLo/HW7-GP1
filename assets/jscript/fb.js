@@ -14,9 +14,9 @@
   // On Click of Any Image Displayed
   $(document).on("click", ".image", function() {
     // console.log(this);
-    var clickCount = $('img').attr('data-count');
+    var clickCount = $(this).attr('data-count');
     console.log(clickCount);
-    var headLine = $('img').attr('data-headLine');
+    var headLine = $(this).attr('data-headLine');
     console.log(headLine);
     // Add to clickCount attribute
     parseInt(clickCount);
