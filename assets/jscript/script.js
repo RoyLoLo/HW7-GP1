@@ -43,19 +43,23 @@ $.ajax({
         let images = innerResponse.match(/https[^"]*\.jpg/);
         let imagesDiv=$("<div class='images'>")
         let topicImage=$("<img>");
-
-
-        console.log(images)
-  /*       let equalFix = images.replace(/u003d/g, "="); */
+        var pCount=$("<p>");
+        var headLiner=desc.replace(/[^A-Z0-9]+/ig, "_")
         topicImage.addClass("image");
         topicImage.attr("onerror", "imgError(this)");
         topicImage.attr("src", images[0]);
         topicImage.attr("data-count", 0);
         topicImage.attr("data-topic", topic);
         topicImage.attr("data-desc", desc);
+        topicImage.attr("data-headLine", headLiner);
         topicImage.attr("data-url", url);
         topicImage.attr("data-source", source);
         imagesDiv.append(topicImage);
+        var daCount=$("<span>");
+        pCount.text("Times inspected: ");
+        pCount.append(daCount);
+        imagesDiv.append(pCount);
+        
         
         $(".imageDump").append(imagesDiv);
     });
@@ -100,6 +104,8 @@ $.ajax({
 })
 
 $(document).on("click", ".images", function(){
+    // console.log(this);s
+
 });
 
 //can also use $(documnent).ready(function(){});
