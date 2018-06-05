@@ -31,7 +31,8 @@ $.ajax({
     //console.log(source);
     //console.log(topic);
     //console.log(desc);
-    //console.log(url);levar config = {
+    //console.log(url);
+    var config = {
     apiKey: "AIzaSyBllNmEjRqK_vUQf632WNBD3TO-E-PtZRQ",
     authDomain: "dailyfails-afad0.firebaseapp.com",
     databaseURL: "https://dailyfails-afad0.firebaseio.com",
@@ -232,7 +233,7 @@ function closeImageModal(){
 
 //end of modal stuff
 
-});//end of docuemnt ready funtiont
+});//end of docuemnt ready funtion
 
 
 //ajax for pulling news images
