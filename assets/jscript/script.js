@@ -24,11 +24,13 @@ $.ajax({
         var imagesDiv=$("<div class='images'>")
         var topicImage=$("<img>");
         var pCount=$("<p>");
+        var headLiner=desc.replace(/[^A-Z0-9]+/ig, "_")
         topicImage.addClass("image");
         topicImage.attr("src", images);
         topicImage.attr("data-count", 0);
         topicImage.attr("data-topic", topic);
         topicImage.attr("data-desc", desc);
+        topicImage.attr("data-headLine", headLiner);
         topicImage.attr("data-url", url);
         topicImage.attr("data-source", source);
         imagesDiv.append(topicImage);
@@ -50,7 +52,7 @@ $.ajax({
 })
 
 $(document).on("click", ".images", function(){
-    console.log(this);
+    // console.log(this);
 
 });
 
