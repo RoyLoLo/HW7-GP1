@@ -1,3 +1,8 @@
+var splashImage =["assets/images/trump.jpg", "assets/images/army.jpg", "assets/images/olympics.jpg", "assets/images/africa.jpg", "assets/images/un.jpg"];
+
+var rand = splashImage[Math.floor(Math.random()*splashImage.length)];
+
+$(".bgImage").attr("src", rand);
 
 
 $.ajax({
@@ -11,6 +16,7 @@ $.ajax({
     var desc= results[i].description;
     var url= results[i].url;
     var source= results[i].source.name;
+
     //console.log(source);
     //console.log(topic);
     //console.log(desc);
@@ -39,34 +45,41 @@ $.ajax({
         $(".imageDump").append(imagesDiv);
     });
     
-    }//for loop
+    }//for loop 
     
-    $(document).on("click",".images",function(){
-        console.log(this);
-        var modalArticle = $("<p>");
-        var modallink = $("<a>");
-
-        modalArticle.html(this.data-desc);
-        $("#image-modal").append(modalArticle);
-
-                
-        
-        
-        
-        openImageModal();
-
-        
-        
-    })
 })
 
+$(document).on("click", ".image", function(){
+ 
+
+    console.log($(this).attr("data-source"))
+    var modalDesc = $("<p>");
+    modalDesc.addClass("modalDesc");
+    modalDesc.append($(this).attr("data-desc"));
+    console.log(modalDesc);
+    $(".modal-body").append(modalDesc);
+    
+    var modalLink = $("<a>");
+    modalLink.attr("class", "modalLink");
+    modalLink.attr("target","blank");
+    modalLink.attr("href", "https://wwww."+$(this).attr("data-source"));
+    modalLink.append("Click Here for Article Source");
+    console.log(modalLink);
+    $(".modal-body").append(modalLink);
+
+    
+    
+    
+    openImageModal();
+
+});
 
 //can also use $(documnent).ready(function(){});
 //$(function(){
 //Modal stuff
 var modalStart = document.getElementById("start-modal");
 var modalBtn = document.getElementById("modal-btn");
-var closeBtn = document.getElementsByClassName("start-btn")[0];
+var closeBtn = document.getElementsByClassName("startImage")[0];
 var tempImage = document.getElementById("temp-image");
 var imageModal = document.getElementById("image-modal");
 var imageClose = document.getElementsByClassName("cls-btn")[0];
