@@ -25,7 +25,7 @@ p{
     width: 250px;
     margin: 8px;
     margin-right:50px;
-    height: 250px;
+    height: 175px;
     border: 2px solid lightgray;
     padding: 5px;
     font-size: 12px;
@@ -98,7 +98,7 @@ p{
 }
 
 .modalLink{
-    margin:auto;
+    margin-left:310px;
     font-size: 30px;
     color: lightgray;
 }
@@ -114,6 +114,7 @@ p{
     color:lightgray;
     font-size: 25px;
     text-align: center;
+    margin-left:480px;
 
 }
 
