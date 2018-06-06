@@ -1,3 +1,4 @@
+
 .header{
     position:relative;
     width:100%;
@@ -61,7 +62,6 @@
     position: fixed;
     width: 70%;
     height:260px;
-    background-color: chartreuse;
     top:5%;
     left: 15%;
 }

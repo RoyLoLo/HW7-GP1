@@ -61,7 +61,7 @@ $.ajax({
     });
 
     }
-    
+//imgae onclick to open modal
     $(document).on("click",".image",function(){
         console.log(this);
         $(".modal-body").empty();
@@ -92,7 +92,10 @@ $.ajax({
         modalTopic.append(mytopic);
         $(".modal-head").append(modalTopic);
                 
-        
+        var modaliFrame = $("<iframe>");
+        modaliFrame.addClass("iFsize");
+        modaliFrame.attr("src",myurl);
+        //$(".modal-body").append(modaliFrame);
         
         
         openImageModal();
@@ -116,7 +119,7 @@ imageModal.style.display = "none";
 $(modalBtn).on("click",openModal);
 $(closeBtn).on("click",closeModal);
 $(imageClose).on("click",closeImageModal);
-
+$(button).on("click",closeBtn ,openImageModal)
 
 function openModal(){
     modalStart.style.display = "block";
