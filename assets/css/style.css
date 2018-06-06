@@ -113,5 +113,11 @@ p{
     outline:none;
     color:lightgray;
     font-size: 25px;
+    text-align: center;
+
+}
+
+.veiwcount{
+    margin-top:10;
 
 }

@@ -20,7 +20,7 @@ $.ajax({
     //console.log(response);
 
     var results=response.articles;
-    console.log(response)
+    //console.log(response)
     var results=response.articles;
 //forloop to pull 10 headlines fom the day 
     for(let i=0;i<9;i++){
@@ -66,7 +66,7 @@ $.ajax({
     //console.log(response);
 
     var results=response.articles;
-    console.log(response)
+    //console.log(response)
     var results=response.articles;
 //forloop to pull 10 headlines fom the day 
     for(let i=0;i<9;i++){
@@ -111,9 +111,9 @@ $.ajax({
     });
 
     }
-    
+    //adds modal for image clicks
     $(document).on("click",".image",function(){
-        console.log(this);
+       // console.log(this);
         $(".modal-body").empty();
         $(".modal-head").empty();
         var mydesc = $(this).attr("data-desc");
@@ -121,6 +121,7 @@ $.ajax({
         var mySource = $(this).attr("data-source");
         var modalDesc = $("<p>");
         var inspecc = $("<p>");
+        $(inspecc).addClass("veiwcount");
         inspecc.text("viewed: ");
         var span = $("<span>");
         span.attr("id", "inspected");
@@ -135,7 +136,7 @@ $.ajax({
         }
         $(".modal-body").append(modalDesc);
 
-        var modalLink = $("<p><a>");
+        var modalLink = $("<a>");
         modalLink.attr("href",myurl);
         modalLink.addClass("modalLink");
         modalLink.text("Read more at "+mySource);
@@ -150,13 +151,13 @@ $.ajax({
 
           // console.log(this);
   var clickCount = $(this).attr('data-count');
-  console.log(clickCount);
+  //console.log(clickCount);
   var headLine = $(this).attr('data-headLine');
-  console.log(headLine);
+  //console.log(headLine);
   // Add to clickCount attribute
   parseInt(clickCount);
   clickCount++;
-  console.log(clickCount);
+  //console.log(clickCount);
 
 
 
@@ -193,10 +194,7 @@ $.ajax({
 
 })
 
-$(document).on("click", ".images", function(){
-    // console.log(this);s
 
-});
 
 //can also use $(documnent).ready(function(){});
 //Modal stuff
