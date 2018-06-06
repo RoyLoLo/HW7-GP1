@@ -13,7 +13,7 @@ function imgError(image) {
 }
 //running ajax call for top news of the day
 $.ajax({
-    url:"https://newsapi.org/v2/top-headlines?country=us&apiKey=b44fe26f44f54697aa4d45c7d56ac36b",
+    url:"https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=b44fe26f44f54697aa4d45c7d56ac36b",
     method:"GET"
 }).then(function(response){
 

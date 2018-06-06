@@ -6,9 +6,13 @@ p{
     margin-top:10%;
 }
 
+.container{
+    width:960px;
+}
+
 .header{
     position:relative;
-    width:100%;
+    width:960px;
 }
 
 #imgDump{
@@ -25,7 +29,7 @@ p{
     width: 250px;
     margin: 8px;
     margin-right:50px;
-    height: 175px;
+    height: 185px;
     border: 2px solid lightgray;
     padding: 5px;
     font-size: 12px;
@@ -65,11 +69,11 @@ p{
 
 #image-modal{
     position: fixed;
-    width: 70%;
-    height:70vh;
+    width: 960px;
+    height:auto;
     background-color: rgba(0, 0, 0, .9);
     top:5%;
-    left: 15%;
+    left: 25%;
 }
 
 .mymodal-content{
